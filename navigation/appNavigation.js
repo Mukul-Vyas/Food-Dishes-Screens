@@ -1,21 +1,22 @@
 import {NavigationContainer} from "@react-navigation/native"
 import {createNativeStackNavigator} from "@react-navigation/native-stack"
 import Home from "../screens/Home";
-import Description from "../screens/Description";
-import { Provider } from 'react-redux';
-import store from "../redux/store";
+import Onboarding from "../screens/onboarding";
+import LoginScreen from "../screens/loginScreen";
+
+
 
 export default function Navigation(){
     const Stack =createNativeStackNavigator();
     return(
-        <Provider store={store}>
+       
         <NavigationContainer>
 
-         <Stack.Navigator initialRouteName="Home">
+         <Stack.Navigator initialRouteName="Onboarding">
 
+            <Stack.Screen name="Onboarding" component={Onboarding} options={{headerShown:false}}/>
             <Stack.Screen name="Home" component={Home} options={{headerShown:false}}/>
-            <Stack.Screen name="Description" component={Description} options={{headerShown:false}}/>
-          
+            <Stack.Screen name="Login" component={LoginScreen} options={{headerShown:false}}/>
 
 
          </Stack.Navigator>
@@ -23,7 +24,7 @@ export default function Navigation(){
 
 
         </NavigationContainer>
-        </Provider>
+    
 
     )
 }
